@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance and Score Tables</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Table for num_local = 1</h2>
+<table>
+    <tr>
+        <th>Nbr_clusters</th>
+        <th>max_neighbor</th>
+        <th>2</th>
+        <th>5</th>
+        <th>10</th>
+        <th>20</th>
+        <th>50</th>
+        <th>100</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td>Dist: 24783.79<br>Score: 0.2027</td>
+        <td>Dist: 24069.34<br>Score: 0.1741</td>
+        <td>Dist: 23071.91<br>Score: 0.2350</td>
+        <td>Dist: 24504.25<br>Score: 0.2596</td>
+        <td>Dist: 22486.82<br>Score: 0.2756</td>
+        <td>Dist: 24375.28<br>Score: 0.3388</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td></td>
+        <td>Dist: 18855.93<br>Score: 0.2164</td>
+        <td>Dist: 19440.84<br>Score: 0.1075</td>
+        <td>Dist: 20488.27<br>Score: 0.0995</td>
+        <td>Dist: 17840.69<br>Score: 0.1469</td>
+        <td>Dist: 17798.88<br>Score: 0.1985</td>
+        <td>Dist: 17158.98<br>Score: 0.2171</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td></td>
+        <td>Dist: 14153.29<br>Score: 0.1400</td>
+        <td>Dist: 14428.92<br>Score: 0.1571</td>
+        <td>Dist: 14915.81<br>Score: 0.1469</td>
+        <td>Dist: 15154.75<br>Score: 0.1271</td>
+        <td>Dist: 14670.48<br>Score: 0.1577</td>
+        <td>Dist: 13864.18<br>Score: 0.1832</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td></td>
+        <td>Dist: 11720.42<br>Score: 0.1147</td>
+        <td>Dist: 11749.70<br>Score: 0.1477</td>
+        <td>Dist: 11666.45<br>Score: 0.1350</td>
+        <td>Dist: 11690.74<br>Score: 0.0938</td>
+        <td>Dist: 12082.97<br>Score: 0.1050</td>
+        <td>Dist: 11821.37<br>Score: 0.1286</td>
+    </tr>
+    <tr>
+        <td>50</td>
+        <td></td>
+        <td>Dist: 9307.43<br>Score: 0.0893</td>
+        <td>Dist: 8940.62<br>Score: 0.0826</td>
+        <td>Dist: 8533.86<br>Score: 0.1154</td>
+        <td>Dist: 8635.91<br>Score: 0.0719</td>
+        <td>Dist: 8216.78<br>Score: 0.1368</td>
+        <td>Dist: 8405.97<br>Score: 0.1155</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td></td>
+        <td>Dist: 6338.33<br>Score: 0.1173</td>
+        <td>Dist: 6412.16<br>Score: 0.0941</td>
+        <td>Dist: 6113.11<br>Score: 0.0932</td>
+        <td>Dist: 6220.88<br>Score: 0.0754</td>
+        <td>Dist: 6194.21<br>Score: 0.0999</td>
+        <td>Dist: 6265.13<br>Score: 0.0841</td>
+    </tr>
+</table>
+
+<h2>Table for num_local = 4</h2>
+<table>
+    <tr>
+        <th>Nbr_clusters</th>
+        <th>max_neighbor</th>
+        <th>2</th>
+        <th>5</th>
+        <th>10</th>
+        <th>20</th>
+        <th>50</th>
+        <th>100</th>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td></td>
+        <td>Dist: 41861.72<br>Score: 0.2776</td>
+        <td>Dist: 23870.77<br>Score: 0.2381</td>
+        <td>Dist: 27366.69<br>Score: 0.3099</td>
+        <td>Dist: 37724.57<br>Score: 0.2256</td>
+        <td>Dist: 27637.97<br>Score: 0.0691</td>
+        <td>Dist: 23742.30<br>Score: 0.2755</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td></td>
+        <td>Dist: 31303.37<br>Score: 0.1679</td>
+        <td>Dist: 30326.12<br>Score: 0.1457</td>
+        <td>Dist: 17494.83<br>Score: 0.2334</td>
+        <td>Dist: 38507.37<br>Score: 0.1756</td>
+        <td>Dist: 42643.79<br>Score: 0.0910</td>
+        <td>Dist: 36388.50<br>Score: 0.2289</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td></td>
+        <td>Dist: 26531.45<br>Score: 0.1103</td>
+        <td>Dist: 28744.90<br>Score: 0.1216</td>
+        <td>Dist: 13786.59<br>Score: 0.1532</td>
+        <td>Dist: 33635.65<br>Score: 0.1184</td>
+        <td>Dist: 13439.11<br>Score: 0.1716</td>
+        <td>Dist: 30676.04<br>Score: 0.1027</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td></td>
+        <td>Dist: 31860.76<br>Score: 0.1407</td>
+        <td>Dist: 26697.49<br>Score: 0.1088</td>
+        <td>Dist: 37505.69<br>Score: 0.1414</td>
+        <td>Dist: 34323.31<br>Score: 0.1065</td>
+        <td>Dist: 11347.56<br>Score: 0.1426</td>
+        <td>Dist: 35615.10<br>Score: 0.0796</td>
+    </tr>
+    <tr>
+        <td>50</td>
+        <td></td>
+        <td>Dist: 32005.36<br>Score: 0.1206</td>
+        <td>Dist: 32424.30<br>Score: 0.1219</td>
+        <td>Dist: 34126.18<br>Score: 0.0603</td>
+        <td>Dist: 29228.71<br>Score: 0.1091</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <th>Max_distance</th>
+        <th>max_neighbor</th>
+        <th>2</th>
+        <th>5</th>
+        <th>10</th>
+        <th>20</th>
+        <th>50</th>
+    </tr>
+    <tr>
+        <td>0.5</td>
+        <td>Clusters: 2<br>Outliers: 574<br>Score: 0.06</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+    </tr>
+    <tr>
+        <td>0.8</td>
+        <td>Clusters: 18<br>Outliers: 388<br>Score: 0.005</td>
+        <td>Clusters: 3<br>Outliers: 507<br>Score: 0.13</td>
+        <td>Clusters: 2<br>Outliers: 549<br>Score: -0.08</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+    </tr>
+    <tr>
+        <td>1.0</td>
+        <td>Clusters: 27<br>Outliers: 236<br>Score: 0.01</td>
+        <td>Clusters: 9<br>Outliers: 409<br>Score: 0.01</td>
+        <td>Clusters: 2<br>Outliers: 524<br>Score: 0.24</td>
+        <td>Clusters: 1<br>Outliers: 565<br>Score: /</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+    </tr>
+    <tr>
+        <td>1.6</td>
+        <td>Clusters: 4<br>Outliers: 41<br>Score: 0.15</td>
+        <td>Clusters: 2<br>Outliers: 72<br>Score: 0.09</td>
+        <td>Clusters: 4<br>Outliers: 105<br>Score: -0.03</td>
+        <td>Clusters: 3<br>Outliers: 296<br>Score: 0.05</td>
+        <td>Clusters: 0<br>Outliers: 589<br>Score: /</td>
+    </tr>
+    <tr>
+        <td>2.0</td>
+        <td>Clusters: 3<br>Outliers: 8<br>Score: 0.28</td>
+        <td>Clusters: 1<br>Outliers: 43<br>Score: /</td>
+        <td>Clusters: 1<br>Outliers: 93<br>Score: /</td>
+        <td>Clusters: 2<br>Outliers: 64<br>Score: 0.1</td>
+        <td>Clusters: 1<br>Outliers: 232<br>Score: /</td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+nbr clusters --> 2 , nbr neighbore --> 2 , num local --> 1 : distances : 24783.793436487882 , score : 0.20273526843666412 
+
+nbr clusters --> 2 , nbr neighbore --> 5 , num local --> 1 : distances : 24069.344369561535 , score : 0.1741010013297768 
+
+nbr clusters --> 2 , nbr neighbore --> 10 , num local --> 1 : distances : 23071.908636163906 , score : 0.2349796327767489 
+
+nbr clusters --> 2 , nbr neighbore --> 20 , num local --> 1 : distances : 24504.254373432555 , score : 0.25964134188207905 
+
+nbr clusters --> 2 , nbr neighbore --> 50 , num local --> 1 : distances : 22486.82370968191 , score : 0.27555437758157453 
+
+nbr clusters --> 2 , nbr neighbore --> 100 , num local --> 1 : distances : 24375.281708371076 , score : 0.33879681377992665 
+
+nbr clusters --> 5 , nbr neighbore --> 2 , num local --> 1 : distances : 18855.932600309807 , score : 0.21643238745294702 
+
+nbr clusters --> 5 , nbr neighbore --> 5 , num local --> 1 : distances : 19440.835343163395 , score : 0.10753102283091585 
+
+nbr clusters --> 5 , nbr neighbore --> 10 , num local --> 1 : distances : 20488.269835238523 , score : 0.09948229215879499 
+
+nbr clusters --> 5 , nbr neighbore --> 20 , num local --> 1 : distances : 17840.688071309927 , score : 0.14688805293148594 
+
+nbr clusters --> 5 , nbr neighbore --> 50 , num local --> 1 : distances : 17798.882408517093 , score : 0.1984911069129051 
+
+nbr clusters --> 5 , nbr neighbore --> 100 , num local --> 1 : distances : 17158.983601272324 , score : 0.21711648476230805 
+
+nbr clusters --> 10 , nbr neighbore --> 2 , num local --> 1 : distances : 14153.293558482008 , score : 0.14004279487452687 
+
+nbr clusters --> 10 , nbr neighbore --> 5 , num local --> 1 : distances : 14428.923681302389 , score : 0.1570903984941222 
+
+nbr clusters --> 10 , nbr neighbore --> 10 , num local --> 1 : distances : 14915.814412041995 , score : 0.14686686312056538 
+
+nbr clusters --> 10 , nbr neighbore --> 20 , num local --> 1 : distances : 15154.752873305642 , score : 0.12711975844944184 
+
+nbr clusters --> 10 , nbr neighbore --> 50 , num local --> 1 : distances : 14670.47919000048 , score : 0.15766693268033402 
+
+nbr clusters --> 10 , nbr neighbore --> 100 , num local --> 1 : distances : 13864.18038029342 , score : 0.18320591754257687 
+
+nbr clusters --> 20 , nbr neighbore --> 2 , num local --> 1 : distances : 11720.416975959248 , score : 0.11466516760953543 
+
+nbr clusters --> 20 , nbr neighbore --> 5 , num local --> 1 : distances : 11749.699387308945 , score : 0.14768527041414445 
+
+nbr clusters --> 20 , nbr neighbore --> 10 , num local --> 1 : distances : 11666.446513821362 , score : 0.1349698183960525 
+
+nbr clusters --> 20 , nbr neighbore --> 20 , num local --> 1 : distances : 11690.735093094117 , score : 0.09382995615082838 
+
+nbr clusters --> 20 , nbr neighbore --> 50 , num local --> 1 : distances : 12082.97132914558 , score : 0.1050325188162465 
+
+nbr clusters --> 20 , nbr neighbore --> 100 , num local --> 1 : distances : 11821.374236783671 , score : 0.12860278193521435 
+
+nbr clusters --> 50 , nbr neighbore --> 2 , num local --> 1 : distances : 9307.426138386742 , score : 0.08926630149411034 
+
+nbr clusters --> 50 , nbr neighbore --> 5 , num local --> 1 : distances : 8940.61658736401 , score : 0.08260544509373864 
+
+nbr clusters --> 50 , nbr neighbore --> 10 , num local --> 1 : distances : 8533.858684552022 , score : 0.11539927641048427 
+
+nbr clusters --> 50 , nbr neighbore --> 20 , num local --> 1 : distances : 8635.907280810083 , score : 0.07186673828370133 
+
+nbr clusters --> 50 , nbr neighbore --> 50 , num local --> 1 : distances : 8216.775251977546 , score : 0.1367665478228119 
+
+nbr clusters --> 50 , nbr neighbore --> 100 , num local --> 1 : distances : 8405.973446326107 , score : 0.11550680183337292 
+
+nbr clusters --> 100 , nbr neighbore --> 2 , num local --> 1 : distances : 6338.328254808212 , score : 0.11725025715180178 
+
+nbr clusters --> 100 , nbr neighbore --> 5 , num local --> 1 : distances : 6412.1602356652165 , score : 0.0941127190564178 
+
+nbr clusters --> 100 , nbr neighbore --> 10 , num local --> 1 : distances : 6113.107657709043 , score : 0.09317524331504033 
+
+nbr clusters --> 100 , nbr neighbore --> 20 , num local --> 1 : distances : 6220.881062434382 , score : 0.07536780521764529 
+
+nbr clusters --> 100 , nbr neighbore --> 50 , num local --> 1 : distances : 6194.21098726715 , score : 0.09993722539349242 
+
+nbr clusters --> 100 , nbr neighbore --> 100 , num local --> 1 : distances : 6265.127185111462 , score : 0.0841017348223988 
+
+nbr clusters --> 2 , nbr neighbore --> 2 , num local --> 4 : distances : 41861.71765672415 , score : 0.2775562119285043 
+
+nbr clusters --> 2 , nbr neighbore --> 5 , num local --> 4 : distances : 23870.774952732183 , score : 0.23808652279120215 
+
+nbr clusters --> 2 , nbr neighbore --> 10 , num local --> 4 : distances : 27366.692100569046 , score : 0.3098796545388447 
+
+nbr clusters --> 2 , nbr neighbore --> 20 , num local --> 4 : distances : 37724.570285280664 , score : 0.22560354932171647 
+
+nbr clusters --> 2 , nbr neighbore --> 50 , num local --> 4 : distances : 27637.96510018739 , score : 0.06906248539564223 
+
+nbr clusters --> 2 , nbr neighbore --> 100 , num local --> 4 : distances : 23742.298919378787 , score : 0.27551449831367053 
+
+nbr clusters --> 5 , nbr neighbore --> 2 , num local --> 4 : distances : 31303.36950441401 , score : 0.16785038588370313 
+
+nbr clusters --> 5 , nbr neighbore --> 5 , num local --> 4 : distances : 30326.122874902838 , score : 0.1457259551849553 
+
+nbr clusters --> 5 , nbr neighbore --> 10 , num local --> 4 : distances : 17494.834522540004 , score : 0.2334160211060413 
+
+nbr clusters --> 5 , nbr neighbore --> 20 , num local --> 4 : distances : 38507.37140184157 , score : 0.1756236980969026 
+
+nbr clusters --> 5 , nbr neighbore --> 50 , num local --> 4 : distances : 42643.78912217532 , score : 0.09102845626762415 
+
+nbr clusters --> 5 , nbr neighbore --> 100 , num local --> 4 : distances : 36388.497645874115 , score : 0.22892684412436526 
+
+nbr clusters --> 10 , nbr neighbore --> 2 , num local --> 4 : distances : 26531.449479419924 , score : 0.11028874643457114 
+
+nbr clusters --> 10 , nbr neighbore --> 5 , num local --> 4 : distances : 28744.901277473138 , score : 0.12161996456280853 
+
+nbr clusters --> 10 , nbr neighbore --> 10 , num local --> 4 : distances : 13786.594037455048 , score : 0.1531877077963929 
+
+nbr clusters --> 10 , nbr neighbore --> 20 , num local --> 4 : distances : 33635.64707620667 , score : 0.11838000802585134 
+
+nbr clusters --> 10 , nbr neighbore --> 50 , num local --> 4 : distances : 13439.11078223108 , score : 0.17162627984098783 
+
+nbr clusters --> 10 , nbr neighbore --> 100 , num local --> 4 : distances : 30676.040560888938 , score : 0.1027376064420442 
+
+nbr clusters --> 20 , nbr neighbore --> 2 , num local --> 4 : distances : 31860.759515326365 , score : 0.14072691520686317 
+
+nbr clusters --> 20 , nbr neighbore --> 5 , num local --> 4 : distances : 26697.49340390839 , score : 0.10875218533000731 
+
+nbr clusters --> 20 , nbr neighbore --> 10 , num local --> 4 : distances : 37505.69324929222 , score : 0.1413628928020523 
+
+nbr clusters --> 20 , nbr neighbore --> 20 , num local --> 4 : distances : 34323.31316329379 , score : 0.10649392635956793 
+
+nbr clusters --> 20 , nbr neighbore --> 50 , num local --> 4 : distances : 11347.557509414419 , score : 0.14262324836823267 
+
+nbr clusters --> 20 , nbr neighbore --> 100 , num local --> 4 : distances : 35615.098408729194 , score : 0.07964562395876862 
+
+nbr clusters --> 50 , nbr neighbore --> 2 , num local --> 4 : distances : 32005.358203675994 , score : 0.12055879422809253 
+
+nbr clusters --> 50 , nbr neighbore --> 5 , num local --> 4 : distances : 32424.30226069827 , score : 0.12188834932743711 
+
+nbr clusters --> 50 , nbr neighbore --> 10 , num local --> 4 : distances : 34126.17817534954 , score : 0.060287973589041505 
+
+nbr clusters --> 50 , nbr neighbore --> 20 , num local --> 4 : distances : 29228.705053216567 , score : 0.10913609218586366 
+
