@@ -129,9 +129,10 @@ def clustering(df , neighbor_matrix):
     clusters = df.copy()
     not_core=[]
     while True:
-        try :
+        try:
             test = clusters[pd.isna(clusters["cluster"])]
             if len(test[test["is_core"]==False])==len(test):
+                
                 break
         except Exception as e:
             test = clusters.copy()
@@ -172,7 +173,239 @@ def dbScan(v1,circle_size , max_ngbr):
     df = clustering(df , neighbor_matrix) 
     return df
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def plot_pca_clusters(df):
+    df = df.copy()
+    df = df.dropna()
+    try : 
+        features = df.drop(columns=['cluster', 'distance'])  # Drop non-numerical columns
+    except Exception as e :
+        features = df.drop(columns=['cluster', 'is_core'])
+    clusters = df['cluster']
+
+    # Apply PCA
+    pca = PCA(n_components=2)
+    pca_result = pca.fit_transform(features)
+
+    # Create a new DataFrame for PCA results
+    pca_df = pd.DataFrame(data=pca_result, columns=['PCA1', 'PCA2'])
+    pca_df['cluster'] = clusters
+
+    # Plot the clusters
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(
+        x='PCA1', 
+        y='PCA2', 
+        hue='cluster', 
+        palette='tab10', 
+        data=pca_df, 
+        s=100
+    )
+    plt.title("PCA Visualization of Clusters (2D)")
+    plt.legend(title="Cluster")
+    return plt
 
 
 
 
+
+class Node:
+    def __init__(self, feature=None, threshold=None, left=None, right=None, value=None):
+        self.feature = feature
+        self.threshold = threshold
+        self.left = left
+        self.right = right
+        self.value = value
+
+def calculate_mse(data, target):
+    return ((data[target] - data[target].mean()) ** 2).mean()
+
+def features_2_dict(df):
+    return {feature: df.columns.get_loc(feature) for feature in df.columns}
+
+def end_criterion(df, depth, max_depth):
+    return len(df) < 2 or depth >= max_depth or len(df.columns) <= 1
+
+def find_best_feature_and_threshold(df, target):
+    best_feature = None
+    best_threshold = None
+    best_score = float("inf")
+
+
+    features = [col for col in df.columns if col not in ["Qair_Winter", "Qair_Spring", "Qair_Summer", "Qair_Fall"]]
+    print(f"looking for best feature among these: {features}")
+
+    for feature in features:
+        thresholds = df[feature].unique()
+        thresholds.sort()
+
+        for i in range(0, len(thresholds)-1):
+            #threshold = (thresholds[i] + thresholds[i - 1]) / 2
+            threshold = thresholds[i]
+
+            left_data = df[df[feature] <= threshold]
+            right_data = df[df[feature] > threshold]
+            #print(f"\n left : {len(left_data)} \n write : {len(right_data)}")
+
+            if len(left_data) == 0 or len(right_data) == 0:
+                print(f" skip this feature: {feature}")
+                continue
+
+            mse_left = calculate_mse(left_data, target)
+            mse_right = calculate_mse(right_data, target)
+            score = (len(left_data) * mse_left + len(right_data) * mse_right) / len(df)
+
+            if score < best_score:
+                best_feature = feature
+                best_threshold = threshold
+                best_score = score
+                #print(" Best So far updated!")
+    
+    print(f"\n\n Result: best feature: {best_feature} , best threshold: {best_threshold}\n Results comin from {len(df)} instances, and score of {best_score}\nResearch is done for this node\n")
+    return best_feature, best_threshold, best_score
+
+def split(df, feature, threshold):
+    left_df = df[df[feature] <= threshold]
+    right_df = df[df[feature] > threshold]
+    return left_df, right_df
+
+def leaf_value(df, target):
+    print("created leaf")
+    return df[target].mean()
+
+def build_tree(df, target='Qair_Winter', depth=0, max_depth=200, min_impurity=2):
+    if end_criterion(df, depth, max_depth):
+        return Node(value=leaf_value(df, target))
+
+    impurity = calculate_mse(df, target)
+    best_feature, best_threshold, weighted_impurity = find_best_feature_and_threshold(df, target)
+
+    if (weighted_impurity / impurity) * 100 < min_impurity:
+        return Node(value=leaf_value(df, target))
+    
+    print(f"splitting on feature: {best_feature} with threshold = {best_threshold}")
+    left_son, right_son = split(df, best_feature, best_threshold)
+    print("affecting sons ...")
+    return Node(
+        feature=best_feature,
+        threshold=best_threshold,
+        left=build_tree(left_son, target, depth + 1, max_depth, min_impurity),
+        right=build_tree(right_son, target, depth + 1, max_depth, min_impurity),
+    )
+
+def predict(root, line, features_indexes_dict):
+    if root.left is None and root.right is None:
+        return root.value
+
+    feature_index = features_indexes_dict[root.feature]
+    if line[feature_index] < root.threshold:
+        return predict(root.left, line, features_indexes_dict)
+    else:
+        return predict(root.right, line, features_indexes_dict)
+
+def fit(df, test_data_percent=20, target='Qair_Winter', max_depth=5, min_impurity=2):
+    len_test = int(len(df) * test_data_percent / 100)
+    train_data = df.iloc[:-len_test]
+    test_data = df.iloc[-len_test:]
+    print("creating root")
+    root = build_tree(train_data, target, max_depth=max_depth, min_impurity=min_impurity)
+
+    features_indexes = features_2_dict(df)
+    predicted = [predict(root, line, features_indexes) for _, line in test_data.iterrows()]
+
+    predicted = pd.Series(predicted, index=test_data.index)
+    mse = ((test_data[target] - predicted) ** 2).mean()
+    r_square = r2_score(test_data[target], predicted)
+    mae = mean_absolute_error(test_data[target], predicted)
+    rmse = root_mean_squared_error(test_data[target], predicted)
+
+    return root, mse, r_square, mae, rmse
+
+def r2_score(y_true, y_pred):
+    ss_res = ((y_true - y_pred) ** 2).sum()
+    ss_tot = ((y_true - y_true.mean()) ** 2).sum()
+    return 1 - (ss_res / ss_tot)
+
+def mean_absolute_error(y_true, y_pred):
+    return abs(y_true - y_pred).mean()
+
+def root_mean_squared_error(y_true, y_pred):
+    return np.sqrt(((y_true - y_pred) ** 2).mean())
+
+def create_sample(df, max_features, target = 'Qair_Winter', bootstrap_percent = 60):
+    """
+    Create a random sample of the dataframe with specified features and bootstrap percentage.
+    """
+    sampled_features = np.random.choice(df.columns.difference([target]), max_features, replace=False)  # Exclude target
+    sampled_df = df[list(sampled_features) + [target]].sample(
+        frac=bootstrap_percent / 100, replace=True, random_state=None
+    )
+    return sampled_df
+
+def Random_forest(df, nbr_trees=10, max_features= 20, bootstrap_percent=60,
+                  test_data_percent=20, target='Qair_Winter', max_depth=5, min_impurity=2):
+    """
+    Build a random forest by training multiple decision trees on bootstrapped samples of the data.
+    """
+    forest = []
+    errors = []
+
+    for i in range(nbr_trees):
+        # Create random sampling
+        df_sample = create_sample(df, max_features, target, bootstrap_percent)
+        print(f"Sample created with features: {len(df_sample.columns) - 1} // rows: {len(df_sample)}")
+
+        # Train a decision tree
+        tree, mse, _, _, _ = fit(df, test_data_percent, target, max_depth=max_depth, min_impurity=min_impurity)
+        print(f"\n\nTree {i+1} successfully created, mse = {mse:.4f}\n\n")
+
+        # Store the tree and its error
+        forest.append(tree)
+        errors.append(mse)
+
+    print("Forest complete!")
+    return forest, errors
+
+def RF_predict(forest, line, features_indexes):
+    """
+    Predict the output for a single line using the Random Forest ensemble.
+    """
+    predictions = np.array([predict(tree, line, features_indexes) for tree in forest])
+    return predictions.mean()
+
+def train_test_sets(df, test_data_percent):
+    """
+    Split the data into train and test sets based on the specified percentage.
+    """
+    len_test = int(len(df) * test_data_percent / 100)
+    train_data = df[:-len_test]
+    test_data = df[-len_test:]
+    return train_data, test_data
+
+def evaluate_rf(forest, df, target, test_data_percent=20):
+    """
+    Evaluate the Random Forest model on the test data.
+    """
+    # Split data
+    _, test_data = train_test_sets(df, test_data_percent)
+
+    # Generate feature indexes
+    features_indexes = features_2_dict(df)
+
+    # Predict values for test data
+    predicted = np.array([RF_predict(forest, line, features_indexes) for _, line in test_data.iterrows()])
+
+    # Actual target values
+    y_true = test_data[target].values
+
+    # Calculate metrics
+    mse = np.mean((y_true - predicted) ** 2)
+    r2 = 1 - mse / np.var(y_true)
+    # Calculate MAE
+    mae = np.abs(y_true - predicted)
+    
+    # Calculate RMSE
+    rmse = np.sqrt(mse)
+    return mse, r2, mae, rmse
