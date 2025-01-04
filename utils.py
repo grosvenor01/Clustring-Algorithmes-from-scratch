@@ -132,7 +132,7 @@ def clustering(df , neighbor_matrix):
         try:
             test = clusters[pd.isna(clusters["cluster"])]
             if len(test[test["is_core"]==False])==len(test):
-                
+
                 break
         except Exception as e:
             test = clusters.copy()
@@ -206,10 +206,6 @@ def plot_pca_clusters(df):
     plt.title("PCA Visualization of Clusters (2D)")
     plt.legend(title="Cluster")
     return plt
-
-
-
-
 
 class Node:
     def __init__(self, feature=None, threshold=None, left=None, right=None, value=None):
